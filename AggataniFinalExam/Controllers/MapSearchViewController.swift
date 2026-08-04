@@ -13,10 +13,10 @@ class MapSearchViewController: UIViewController {
     private let landmarkCoordinate = CLLocationCoordinate2D(latitude: 43.7230, longitude: 10.3966)
     private let landmarkName = "Leaning Tower of Pisa"
 
-    private let mapView = MKMapView()
-    private let searchBarContainer = UIView()
-    private let searchTextField = UITextField()
-    private let searchButton = UIButton(type: .system)
+    @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet private weak var searchBarContainer: UIView!
+    @IBOutlet private weak var searchTextField: UITextField!
+    @IBOutlet private weak var searchButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +31,8 @@ class MapSearchViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        layoutContent()
-    }
-
     private func setupMap() {
         mapView.mapType = .standard
-        view.addSubview(mapView)
 
         let region = MKCoordinateRegion(center: landmarkCoordinate, latitudinalMeters: 800, longitudinalMeters: 800)
         mapView.setRegion(region, animated: false)
@@ -50,43 +44,18 @@ class MapSearchViewController: UIViewController {
     }
 
     private func setupSearchBar() {
-        searchBarContainer.backgroundColor = .white
         searchBarContainer.layer.cornerRadius = 14
         searchBarContainer.layer.shadowColor = UIColor.black.cgColor
         searchBarContainer.layer.shadowOpacity = 0.25
         searchBarContainer.layer.shadowOffset = CGSize(width: 0, height: 3)
         searchBarContainer.layer.shadowRadius = 8
-        view.addSubview(searchBarContainer)
 
-        searchTextField.placeholder = "Search for a location..."
-        searchTextField.borderStyle = .none
-        searchTextField.returnKeyType = .search
-        searchTextField.clearButtonMode = .whileEditing
-        searchTextField.font = .systemFont(ofSize: 17)
         searchTextField.delegate = self
-        searchBarContainer.addSubview(searchTextField)
 
-        searchButton.setTitle("Search", for: .normal)
-        searchButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
         searchButton.setTitleColor(.white, for: .normal)
         searchButton.backgroundColor = .systemIndigo
         searchButton.layer.cornerRadius = 10
         searchButton.addTarget(self, action: #selector(didTapSearch), for: .touchUpInside)
-        searchBarContainer.addSubview(searchButton)
-    }
-
-    private func layoutContent() {
-        mapView.frame = view.bounds
-
-        let topInset = view.safeAreaInsets.top
-        let barWidth = min(620, view.bounds.width - 40)
-        let barHeight: CGFloat = 56
-
-        searchBarContainer.frame = CGRect(x: (view.bounds.width - barWidth) / 2, y: topInset + 16, width: barWidth, height: barHeight)
-
-        let buttonWidth: CGFloat = 100
-        searchButton.frame = CGRect(x: barWidth - buttonWidth - 8, y: 8, width: buttonWidth, height: barHeight - 16)
-        searchTextField.frame = CGRect(x: 16, y: 0, width: barWidth - buttonWidth - 32, height: barHeight)
     }
 
     @objc private func didTapSearch() {

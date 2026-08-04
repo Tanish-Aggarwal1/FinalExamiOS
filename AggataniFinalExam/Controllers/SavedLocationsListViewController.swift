@@ -10,8 +10,9 @@ import UIKit
 class SavedLocationsListViewController: UIViewController {
 
     private let cellReuseIdentifier = "LocationCell"
-    private let tableView = UITableView(frame: .zero, style: .plain)
     private var locations: [SavedLocation] = []
+
+    @IBOutlet private weak var tableView: UITableView!
 
     var onSelect: ((SavedLocation) -> Void)?
 
@@ -22,7 +23,6 @@ class SavedLocationsListViewController: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
-        view.addSubview(tableView)
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "Close",
@@ -35,11 +35,6 @@ class SavedLocationsListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         reloadLocations()
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = view.bounds
     }
 
     @objc private func didTapClose() {
