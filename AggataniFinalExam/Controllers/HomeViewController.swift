@@ -45,8 +45,8 @@ class HomeViewController: UIViewController {
     }
 
     private func setupLabels() {
-        titleLabel.text = "GeoPin"
-        titleLabel.font = .systemFont(ofSize: 48, weight: .bold)
+        titleLabel.text = "Tanish Aggarwal Final Exam"
+        titleLabel.font = .systemFont(ofSize: 40, weight: .bold)
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
         view.addSubview(titleLabel)
