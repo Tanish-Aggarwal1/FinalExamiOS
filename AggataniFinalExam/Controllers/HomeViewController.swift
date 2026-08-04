@@ -9,7 +9,6 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    private let gradientLayer = CAGradientLayer()
     private let iconImageView = UIImageView()
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
@@ -31,15 +30,11 @@ class HomeViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        gradientLayer.frame = view.bounds
         layoutContent()
     }
 
     private func setupBackground() {
-        gradientLayer.colors = [UIColor.systemIndigo.cgColor, UIColor.systemTeal.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-        view.layer.insertSublayer(gradientLayer, at: 0)
+        view.backgroundColor = .systemIndigo
     }
 
     private func setupIcon() {
