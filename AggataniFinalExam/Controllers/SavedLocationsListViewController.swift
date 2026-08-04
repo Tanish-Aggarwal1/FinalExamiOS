@@ -16,28 +16,12 @@ class SavedLocationsListViewController: UIViewController {
 
     var onSelect: ((SavedLocation) -> Void)?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = "Saved Locations"
-        view.backgroundColor = .systemBackground
-
-        tableView.dataSource = self
-        tableView.delegate = self
-
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            title: "Close",
-            style: .plain,
-            target: self,
-            action: #selector(didTapClose)
-        )
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         reloadLocations()
     }
 
-    @objc private func didTapClose() {
+    @IBAction private func didTapClose() {
         dismiss(animated: true)
     }
 

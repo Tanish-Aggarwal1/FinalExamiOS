@@ -22,10 +22,6 @@ class SavedLocationDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Details"
-        view.backgroundColor = .systemBackground
-        setupInfoPanel()
-        setupEmptyState()
         updateContent()
     }
 
@@ -33,26 +29,6 @@ class SavedLocationDetailViewController: UIViewController {
         loadViewIfNeeded()
         self.location = location
         updateContent()
-    }
-
-    private func setupInfoPanel() {
-        infoContainer.backgroundColor = .secondarySystemBackground
-        infoContainer.layer.cornerRadius = 14
-
-        nameLabel.font = .systemFont(ofSize: 22, weight: .bold)
-        idLabel.font = .systemFont(ofSize: 17, weight: .medium)
-        latitudeLabel.font = .systemFont(ofSize: 17, weight: .medium)
-        longitudeLabel.font = .systemFont(ofSize: 17, weight: .medium)
-
-        for label in [nameLabel, idLabel, latitudeLabel, longitudeLabel] {
-            label?.textColor = .label
-        }
-    }
-
-    private func setupEmptyState() {
-        emptyStateLabel.text = "No saved locations yet.\nSearch for a place on the Map Search screen."
-        emptyStateLabel.textColor = .secondaryLabel
-        emptyStateLabel.font = .systemFont(ofSize: 18)
     }
 
     private func updateContent() {

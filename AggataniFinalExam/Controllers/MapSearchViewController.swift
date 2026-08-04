@@ -20,10 +20,7 @@ class MapSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Map Search"
-        view.backgroundColor = .systemBackground
         setupMap()
-        setupSearchBar()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,22 +40,7 @@ class MapSearchViewController: UIViewController {
         mapView.addAnnotation(annotation)
     }
 
-    private func setupSearchBar() {
-        searchBarContainer.layer.cornerRadius = 14
-        searchBarContainer.layer.shadowColor = UIColor.black.cgColor
-        searchBarContainer.layer.shadowOpacity = 0.25
-        searchBarContainer.layer.shadowOffset = CGSize(width: 0, height: 3)
-        searchBarContainer.layer.shadowRadius = 8
-
-        searchTextField.delegate = self
-
-        searchButton.setTitleColor(.white, for: .normal)
-        searchButton.backgroundColor = .systemIndigo
-        searchButton.layer.cornerRadius = 10
-        searchButton.addTarget(self, action: #selector(didTapSearch), for: .touchUpInside)
-    }
-
-    @objc private func didTapSearch() {
+    @IBAction private func didTapSearch() {
         performSearch()
     }
 
