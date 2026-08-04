@@ -1,0 +1,23 @@
+# Xcode
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+DerivedData/
+build/
+*.moved-aside
+*.hmap
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+
+# CocoaPods (not used, kept as a safety net)
+Pods/
+
+# macOS
+.DS_Store
+
+# Claude Code / AI tooling — never commit
+.claude/
+CLAUDE.md
