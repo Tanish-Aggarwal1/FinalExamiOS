@@ -91,7 +91,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
                             <view contentMode="scaleToFill" id="MapSearch-Bar">
-                                <rect key="frame" x="287" y="60" width="620" height="56"/>
+                                <rect key="frame" x="287" y="76" width="620" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="none" placeholder="Search for a location..." clearButtonMode="whileEditing" returnKeyType="search" id="MapSearch-Field">
