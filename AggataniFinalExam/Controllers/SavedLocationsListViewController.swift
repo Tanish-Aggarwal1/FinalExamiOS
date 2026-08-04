@@ -7,9 +7,10 @@
 
 import UIKit
 
-class SavedLocationsListViewController: UITableViewController {
+class SavedLocationsListViewController: UIViewController {
 
     private let cellReuseIdentifier = "LocationCell"
+    private let tableView = UITableView(frame: .zero, style: .plain)
     private var locations: [SavedLocation] = []
 
     var onSelect: ((SavedLocation) -> Void)?
@@ -17,11 +18,32 @@ class SavedLocationsListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Saved Locations"
+        view.backgroundColor = .systemBackground
+
+        tableView.dataSource = self
+        tableView.delegate = self
+        view.addSubview(tableView)
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "Close",
+            style: .plain,
+            target: self,
+            action: #selector(didTapClose)
+        )
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         reloadLocations()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
+    }
+
+    @objc private func didTapClose() {
+        dismiss(animated: true)
     }
 
     private func reloadLocations() {
@@ -33,12 +55,14 @@ class SavedLocationsListViewController: UITableViewController {
             onSelect?(first)
         }
     }
+}
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension SavedLocationsListViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         locations.isEmpty ? 1 : locations.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) ?? UITableViewCell(style: .subtitle, reuseIdentifier: cellReuseIdentifier)
 
         guard !locations.isEmpty else {
@@ -55,7 +79,7 @@ class SavedLocationsListViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard !locations.isEmpty else { return }
         onSelect?(locations[indexPath.row])
     }

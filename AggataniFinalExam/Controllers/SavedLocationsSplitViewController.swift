@@ -14,24 +14,15 @@ class SavedLocationsSplitViewController: UISplitViewController {
         preferredDisplayMode = .oneBesideSecondary
         preferredPrimaryColumnWidthFraction = 0.38
 
-        let listVC = SavedLocationsListViewController()
-        let detailVC = SavedLocationDetailViewController()
+        guard let primaryNav = viewControllers.first as? UINavigationController,
+              let listVC = primaryNav.topViewController as? SavedLocationsListViewController,
+              let secondaryNav = viewControllers.last as? UINavigationController,
+              let detailVC = secondaryNav.topViewController as? SavedLocationDetailViewController else {
+            return
+        }
+
         listVC.onSelect = { [weak detailVC] location in
             detailVC?.configure(with: location)
         }
-        listVC.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            title: "Close",
-            style: .plain,
-            target: self,
-            action: #selector(didTapClose)
-        )
-
-        let primaryNav = UINavigationController(rootViewController: listVC)
-        let secondaryNav = UINavigationController(rootViewController: detailVC)
-        viewControllers = [primaryNav, secondaryNav]
-    }
-
-    @objc private func didTapClose() {
-        dismiss(animated: true)
     }
 }

@@ -101,12 +101,10 @@ class HomeViewController: UIViewController {
     }
 
     @objc private func didTapMapSearch() {
-        navigationController?.pushViewController(MapSearchViewController(), animated: true)
+        performSegue(withIdentifier: "ShowMapSearch", sender: self)
     }
 
     @objc private func didTapSavedLocations() {
-        let splitViewController = SavedLocationsSplitViewController()
-        splitViewController.modalPresentationStyle = .fullScreen
-        present(splitViewController, animated: true)
+        performSegue(withIdentifier: "ShowSavedLocations", sender: self)
     }
 }
