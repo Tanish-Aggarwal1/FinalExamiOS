@@ -11,7 +11,6 @@ class HomeViewController: UIViewController {
 
     @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var subtitleLabel: UILabel!
     @IBOutlet private weak var mapSearchButton: UIButton!
     @IBOutlet private weak var savedLocationsButton: UIButton!
 
@@ -37,10 +36,6 @@ class HomeViewController: UIViewController {
         titleLabel.text = "Tanish Aggarwal Final Exam"
         titleLabel.font = .systemFont(ofSize: 40, weight: .bold)
         titleLabel.textColor = .white
-
-        subtitleLabel.text = "Discover, search, and save the places that matter."
-        subtitleLabel.font = .systemFont(ofSize: 18, weight: .regular)
-        subtitleLabel.textColor = UIColor.white.withAlphaComponent(0.85)
     }
 
     private func setupButtons() {

@@ -43,17 +43,13 @@
                                 <rect key="frame" x="0.0" y="233" width="1194" height="60"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Home-Subtitle">
-                                <rect key="frame" x="337" y="299" width="520" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Home-MapBtn">
-                                <rect key="frame" x="322" y="393" width="260" height="60"/>
+                                <rect key="frame" x="322" y="343" width="260" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <state key="normal" title="Map Search"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Home-SavedBtn">
-                                <rect key="frame" x="612" y="393" width="260" height="60"/>
+                                <rect key="frame" x="612" y="343" width="260" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <state key="normal" title="Saved Locations"/>
                             </button>
@@ -63,7 +59,6 @@
                     <connections>
                         <outlet property="iconImageView" destination="Home-Icon" id="Home-Out-Icon"/>
                         <outlet property="titleLabel" destination="Home-Title" id="Home-Out-Title"/>
-                        <outlet property="subtitleLabel" destination="Home-Subtitle" id="Home-Out-Subtitle"/>
                         <outlet property="mapSearchButton" destination="Home-MapBtn" id="Home-Out-MapBtn"/>
                         <outlet property="savedLocationsButton" destination="Home-SavedBtn" id="Home-Out-SavedBtn"/>
                         <segue destination="MapSearch-VC" kind="show" identifier="ShowMapSearch" id="Seg-MapSearch"/>
