@@ -6,7 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6E1E07ADA090EC4A9F5FC875 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D27B289932A3930D78422F35 /* libsqlite3.tbd */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		D27B289932A3930D78422F35 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		EA9F2E513022502100B783D6 /* AggataniFinalExam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AggataniFinalExam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -36,16 +41,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E1E07ADA090EC4A9F5FC875 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		278427199ADF56A9AF0B6691 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D27B289932A3930D78422F35 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EA9F2E483022502000B783D6 = {
 			isa = PBXGroup;
 			children = (
 				EA9F2E533022502100B783D6 /* AggataniFinalExam */,
+				278427199ADF56A9AF0B6691 /* Frameworks */,
 				EA9F2E523022502100B783D6 /* Products */,
 			);
 			sourceTree = "<group>";
