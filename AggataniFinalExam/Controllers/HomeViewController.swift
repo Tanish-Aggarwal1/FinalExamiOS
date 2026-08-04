@@ -110,6 +110,8 @@ class HomeViewController: UIViewController {
     }
 
     @objc private func didTapSavedLocations() {
-        navigationController?.pushViewController(SavedLocationsSplitViewController(), animated: true)
+        let splitViewController = SavedLocationsSplitViewController()
+        splitViewController.modalPresentationStyle = .fullScreen
+        present(splitViewController, animated: true)
     }
 }
